@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  web:
+    image: nginx
+    ports:
+      - "80:80"
+    restart: always
+
+  check_status:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: always
+    volumes:
+      - ./log:/app/log
+    environment:
+      - CHECK_INTERVAL=1
+    depends_on:
+      - web
