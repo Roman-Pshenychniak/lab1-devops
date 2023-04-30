@@ -15,6 +15,6 @@ services:
     volumes:
       - ./log:/app/log
     environment:
-      - CHECK_INTERVAL=1
+      - CHECK_INTERVAL=30
     depends_on:
       - web
